@@ -89,7 +89,7 @@ const server = net.createServer((socket) => {
                 json.detail = "QUERY FAILED [UNABLE TO FIND] (" + ( Date.now() - startTime ) + "ms)";
                 socket.write(JSON.stringify(json));
             } else {
-                fs.unlink(filePath, (err) => {
+                fs.unlink("data/" + jsonObject.id, (err) => {
                     if (err) {
                         json.status = "NO";
                         json.detail = "QUERY FAILED [UNABLE TO DELETE] (" + ( Date.now() - startTime ) + "ms)";
